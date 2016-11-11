@@ -1,0 +1,1 @@
+This app is create full screen view of an activity
