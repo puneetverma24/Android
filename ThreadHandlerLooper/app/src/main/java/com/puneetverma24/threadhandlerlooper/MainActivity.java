@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         handler=new Handler(getApplicationContext().getMainLooper());
 
+       // handler=new Handler(); this also works as thread automatically connected to the parent thread's looper.
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
