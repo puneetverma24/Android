@@ -1,6 +1,43 @@
 ## This repository has collection of various android apps
 
 
+
+### ActivityFullScreen:- 	
+
+### AndroidLifeCycle:- 	
+Learn about Android Life Cycle 
+
+### AndroidLogs:- 	
+
+### AsyncTaskDemo:- 	
+
+### BroadCastReceiverCustom:-
+
+### BroadcastReceiverDynamically:-
+
+### BroadcastReceiverXml:-
+
+### ContentProviderSimple:-
+
+### FragmentCommunication:-
+
+### FragmentDemoJava:-
+
+### FragmentDemoXml:-
+
+### ServiceStartStop:-
+
+### ServiceUnbound:-
+
+### SimpleListView:-
+
+### Sqlite3level:-
+
+### ThreadHandlerLooper:-
+
+### ThreadSimple:-
+
+
 ### SimpleListView:- 
 This projects shows how to display simple listView
 
