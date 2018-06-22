@@ -1,44 +1,44 @@
-## This repository has collection of various android apps
+## This repository has collection of various Android Apps
 
 
 
-### ActivityFullScreen:- 	
+#### ActivityFullScreen:- 	
 
-### AndroidLifeCycle:- 	
+#### AndroidLifeCycle:- 	
 Learn about Android Life Cycle 
 
-### AndroidLogs:- 	
+#### AndroidLogs:- 	
 
-### AsyncTaskDemo:- 	
+#### AsyncTaskDemo:- 	
 
-### BroadCastReceiverCustom:-
+#### BroadCastReceiverCustom:-
 
-### BroadcastReceiverDynamically:-
+#### BroadcastReceiverDynamically:-
 
-### BroadcastReceiverXml:-
+#### BroadcastReceiverXml:-
 
-### ContentProviderSimple:-
+#### ContentProviderSimple:-
 
-### FragmentCommunication:-
+#### FragmentCommunication:-
 
-### FragmentDemoJava:-
+#### FragmentDemoJava:-
 
-### FragmentDemoXml:-
+#### FragmentDemoXml:-
 
-### ServiceStartStop:-
+#### ServiceStartStop:-
 
-### ServiceUnbound:-
+#### ServiceUnbound:-
 
-### SimpleListView:-
+#### SimpleListView:-
 
-### Sqlite3level:-
+#### Sqlite3level:-
 
-### ThreadHandlerLooper:-
+#### ThreadHandlerLooper:-
 
-### ThreadSimple:-
+#### ThreadSimple:-
 
 
-### SimpleListView:- 
+#### SimpleListView:- 
 This projects shows how to display simple listView
 
 <img src="https://github.com/puneetverma24/Android/blob/master/SimpleListView/device-2018-06-22-102618.png" width="200" height="200" />

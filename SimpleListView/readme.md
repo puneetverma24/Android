@@ -1,1 +1,0 @@
-![alt text](https://github.com/puneetverma24/Android/blob/master/SimpleListView/device-2018-06-22-102618.png)

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,10 @@ public class MainActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "Position : "+position, Toast.LENGTH_SHORT).show();
+
+                TextView temp=(TextView)view;
+
+                Toast.makeText(MainActivity.this, "Position : "+position+" Text : "+temp.getText(), Toast.LENGTH_SHORT).show();
             }
         });
 
