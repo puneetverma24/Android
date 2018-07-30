@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,9 +82,7 @@ public class ExploreTab  extends Fragment implements View.OnClickListener,Locati
         init(view);
 
 
-
-
-        edt.addTextChangedListener(new TextWatcher() {
+       edt.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -114,10 +113,7 @@ public class ExploreTab  extends Fragment implements View.OnClickListener,Locati
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 edt.setText(result[position]);
-
                 location=result[position];
-
-               // Toast.makeText(ExploreTab.this, result[position], Toast.LENGTH_SHORT).show();
                 searchResult.setVisibility(View.GONE);
                 hsv.setVisibility(View.VISIBLE);
 
@@ -262,8 +258,17 @@ public class ExploreTab  extends Fragment implements View.OnClickListener,Locati
 
 else
             {
+
+            try {
                 getLocation();
-               getLastLocation();
+                getLastLocation();
+            }
+            catch(Exception e)
+            {
+               // Toast.makeText(getActivity(), "Please Unable the Gps", Toast.LENGTH_SHORT).show();
+            }
+
+
             }
 
 
@@ -278,7 +283,11 @@ else
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, this);
 
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-        Toast.makeText(getActivity(), "Fetching Coordinates", Toast.LENGTH_LONG).show();
+            Toast toast=Toast.makeText(getActivity(), "Fetching Coordinates", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
+
+
         }
         catch(SecurityException e) {
             e.printStackTrace();
@@ -293,13 +302,21 @@ else
             Log.d("TAG", provider);
             Log.d("TAG", location == null ? "NO LastLocation" : location.toString());
 
-            //edt.setText(location.toString());
 
-          //  edt.setVisibility(View.GONE);
-         //   hsv.setVisibility(View.VISIBLE);
 
+            if(location==null)
+            {
+
+                Toast toast=Toast.makeText(getActivity(), "Enable To Fetch Gps data", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
+
+
+            }
 
             String lat_lon = location.getLatitude() + "," + location.getLongitude();
+
+
             LatToPalce(lat_lon);
 
 
@@ -313,47 +330,10 @@ else
     {
         Call<ReverseGeo> postList= ClientApi.getService().getReverseGeo(lat_lon);
 
-        Log.v("hellooo",lat_lon);
-
         postList.enqueue(new Callback<ReverseGeo>() {
             @Override
             public void onResponse(Call<ReverseGeo> call, Response<ReverseGeo> response) {
-
-                ReverseGeo prediction = response.body();
-
-
-              //String placee=response.body().getResults().get(0).getFormattedAddress();
-
-                String placee=response.body().getResults().get(0).getAddressComponents().get(1).getShortName();
-                edt.setText(placee);
-
-
-
-               // Toast.makeText(getContext(), ""+placee, Toast.LENGTH_SHORT).show();
-
-              //  Log.v("hellooo",""+place);
-
-                String place=response.body().getResults().get(0).getAddressComponents().get(0).getShortName();
-
-
-
-                /*
-                result=new String[prediction.getPredictions().size()];
-                 *
-
-                for(int i=0;i<prediction.getPredictions().size();i++) {
-
-                    result[i]=response.body().getPredictions().get(i).getDescription();
-                }
-                // List<Search> heroList = response.body();
-
-*/
-             //   ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(),R.layout.support_simple_spinner_dropdown_item,result );
-
-               // searchResult.setAdapter(adapter);
-
-                // Toast.makeText(MainActivity.this, "" + response.body().getPredictions(), Toast.LENGTH_SHORT).show();
-
+            edt.setText(response.body().getResults().get(0).getAddressComponents().get(1).getShortName());
             }
 
             @Override
@@ -370,30 +350,27 @@ else
 
     @Override
     public void onLocationChanged(Location location) {
-        //  locationText.setText("Latitude: " + location.getLatitude() + "\n Longitude: " + location.getLongitude());
-
-      //  Toast.makeText(this, "Lat"+location.getLatitude(), Toast.LENGTH_SHORT).show();
-        Log.v("tag","hello"+location.getLatitude());
 
         try {
             Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            //     locationText.setText(locationText.getText() + "\n"+addresses.get(0).getAddressLine(0)+", "+
-            //           addresses.get(0).getAddressLine(1)+", "+addresses.get(0).getAddressLine(2));
-
-         //   Toast.makeText(this, "Latmnm,"+addresses.get(0), Toast.LENGTH_SHORT).show();
 
 
         }catch(Exception e)
         {
-            Toast.makeText(getActivity(), "Enable To Fetch Gps data", Toast.LENGTH_SHORT).show();
+            Toast toast=Toast.makeText(getActivity(), "Enable To Fetch Gps data", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
         }
 
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-        Toast.makeText(getActivity(), "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
+
+        Toast toast=Toast.makeText(getActivity(), "Please Enable GPS", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.show();
     }
 
     @Override
@@ -412,6 +389,7 @@ else
     {
 
         edt=view.findViewById(R.id.edt);
+
         searchResult=view.findViewById(R.id.search_result);
         hsv=view.findViewById(R.id.hsv);
 

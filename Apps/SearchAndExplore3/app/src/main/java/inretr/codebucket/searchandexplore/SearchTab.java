@@ -16,6 +16,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -140,8 +141,13 @@ public class SearchTab  extends Fragment implements View.OnClickListener ,Locati
 
                    else
                    {
+                       try {
+
+
                        getLocation();
-                       getLastLocation();
+                       getLastLocation();}
+                       catch (Exception e){};
+
                    }
 
 
@@ -166,7 +172,9 @@ public class SearchTab  extends Fragment implements View.OnClickListener ,Locati
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, this);
 
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-            Toast.makeText(getActivity(), "Fetching Coordinates", Toast.LENGTH_LONG).show();
+            Toast toast=Toast.makeText(getActivity(), "Fetching Coordinates", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
         }
         catch(SecurityException e) {
             e.printStackTrace();
@@ -181,14 +189,19 @@ public class SearchTab  extends Fragment implements View.OnClickListener ,Locati
             Log.d("TAG", provider);
             Log.d("TAG", location == null ? "NO LastLocation" : location.toString());
 
-            //edt.setText(location.toString());
 
-            //  edt.setVisibility(View.GONE);
-            //   hsv.setVisibility(View.VISIBLE);
+            if(location==null)
+            {
+
+                Toast toast=Toast.makeText(getActivity(), "Enable To Fetch Gps data", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+                toast.show();
+            }
 
 
-            String lat_lon = location.getLatitude() + "," + location.getLongitude();
-            LatToPalce(lat_lon);
+
+
+            LatToPalce(location.getLatitude() + "," + location.getLongitude());
 
 
         } catch (SecurityException e) {
@@ -392,14 +405,20 @@ public class SearchTab  extends Fragment implements View.OnClickListener ,Locati
 
         }catch(Exception e)
         {
-            Toast.makeText(getActivity(), "Enable To Fetch Gps data", Toast.LENGTH_SHORT).show();
+
+            Toast toast=Toast.makeText(getActivity(), "Enable To Fetch Gps data", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
+
         }
 
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-        Toast.makeText(getActivity(), "Please Enable GPS and Internet", Toast.LENGTH_SHORT).show();
+          Toast toast=Toast.makeText(getActivity(), "Please Enable GPS", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER|Gravity.CENTER_HORIZONTAL, 0, 0);
+        toast.show();
     }
 
     @Override
