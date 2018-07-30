@@ -17,12 +17,15 @@ public class MainActivity extends AppCompatActivity {
         Log.v("check",""+Thread.currentThread().getName());
         Button btn=(Button)findViewById(R.id.btn);
 
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+
+                       for(int i=0;i<10;i++)
                         Log.v("check",""+Thread.currentThread().getName());
                        // Toast.makeText(MainActivity.this, ""+Thread.currentThread().getId(), Toast.LENGTH_SHORT).show();
                     }
@@ -30,15 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
+        
     }
-
-
-
 
 
 }
