@@ -52,7 +52,7 @@ public class SearchTab  extends Fragment implements View.OnClickListener ,Locati
     private EditText edtkeyword;
     private ListView searchResult;
 
-    ImageView gps;
+    private ImageView gps;
 
 
     public SearchTab() {

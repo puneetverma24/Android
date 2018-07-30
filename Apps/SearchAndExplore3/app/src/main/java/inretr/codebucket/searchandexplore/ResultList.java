@@ -7,11 +7,6 @@ import android.support.v7.widget.RecyclerView;
 
 public class ResultList extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

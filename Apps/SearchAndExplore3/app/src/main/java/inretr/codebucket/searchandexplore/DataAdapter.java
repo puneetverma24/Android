@@ -149,10 +149,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
                 a.putStringArray("photo_reference",photo_reference);
                 i.putExtras(a);
 
-               v.getContext().startActivity(i);
-
-
-                Log.v("tag",""+prediction.getResult().getRating());
+                 v.getContext().startActivity(i);
 
 
             }

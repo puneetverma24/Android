@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 
 public class ClientApi {
    //Dummy Api
-    private static final String key="Dummy Api";
+   static final String key="Dummy Api";
     private static final String url="https://maps.googleapis.com/maps/api/place/";
 
 

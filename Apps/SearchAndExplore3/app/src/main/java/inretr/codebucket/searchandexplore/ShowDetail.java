@@ -10,7 +10,7 @@ public class ShowDetail extends AppCompatActivity   {
 
 
 
-     //   private SliderLayout mDemoSlider;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,6 @@ public class ShowDetail extends AppCompatActivity   {
 
         String website=getIntent().getStringExtra("website");
         String rate=getIntent().getStringExtra("rate");
-        //mDemoSlider = findViewById(R.id.slider);
-
 
         Bundle a=this.getIntent().getExtras();
         String[] photo_reference=a.getStringArray("photo_reference");

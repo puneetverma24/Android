@@ -46,7 +46,9 @@ class ImageAdapter extends BaseAdapter {
             imageView = (ImageView) convertView;
         }
 
-        String url="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+getItem(position)+"&key=AIzaSyCrAkJhbJRPxsT12nnq6EGV9dLzSSI3bLI";
+        String url="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+getItem(position)+"&key="+ClientApi.key;
+
+
 
 
         Picasso.get()
