@@ -12,8 +12,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class ClientApi {
-
-    private static final String key="Dummy Api ";
+   //Dummy Api
+    private static final String key="Dummy Api";
     private static final String url="https://maps.googleapis.com/maps/api/place/";
 
 
@@ -53,13 +53,8 @@ public interface SearchInterface
     Call<DisplayDetail> getDetail(@Query("placeid") String placeid);
 
 
-
-   @GET("http://maps.googleapis.com/maps/api/geocode/json?latlng=12.946,77.711&sensor=true")
-  Call<ReverseGeo> getReverseGeo();
-
-   //todo uncomment this
-   //@GET("http://maps.googleapis.com/maps/api/geocode/json?sensor=true")
-  //Call<ReverseGeo> getReverseGeo(@Query("latlng") String lat_lon);
+   @GET("http://maps.googleapis.com/maps/api/geocode/json?sensor=true")
+  Call<ReverseGeo> getReverseGeo(@Query("latlng") String lat_lon);
 
 
 

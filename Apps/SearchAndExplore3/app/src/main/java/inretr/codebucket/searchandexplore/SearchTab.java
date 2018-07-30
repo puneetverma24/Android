@@ -41,17 +41,13 @@ import retrofit2.Response;
 
 public class SearchTab  extends Fragment implements View.OnClickListener ,LocationListener {
 
-
-
-
     private String[] result;
-    String[] hello;
     private String[] icon;
     private String[] placeid;
     private String location;
-    LinearLayout bar,bakery,delivery,takeaway,cafe,museum,club,restaurant,spa;
-    LocationManager locationManager;
-private Button btn_search;
+   // private LinearLayout bar,bakery,delivery,takeaway,cafe,museum,club,restaurant,spa;
+    private LocationManager locationManager;
+    private Button btn_search;
     private EditText edt;
     private EditText edtkeyword;
     private ListView searchResult;
@@ -321,9 +317,9 @@ private Button btn_search;
 
     private void LatToPalce(String lat_lon)
     {
-        Call<ReverseGeo> postList= ClientApi.getService().getReverseGeo();
+        Call<ReverseGeo> postList= ClientApi.getService().getReverseGeo(lat_lon);
 
-        Log.v("hellooo",lat_lon);
+
 
         postList.enqueue(new Callback<ReverseGeo>() {
             @Override

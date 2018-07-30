@@ -311,7 +311,7 @@ else
 
     private void LatToPalce(String lat_lon)
     {
-        Call<ReverseGeo> postList= ClientApi.getService().getReverseGeo();
+        Call<ReverseGeo> postList= ClientApi.getService().getReverseGeo(lat_lon);
 
         Log.v("hellooo",lat_lon);
 
