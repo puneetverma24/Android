@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SearchAndExplore</string>
+
+
+
+    <string name="hint_location">Enter Location</string>
+    <string name="gps_icon">Gps icon</string>
+    <string name="beer_icon">beer icon</string>
+    <string name="bar">Bar</string>
+    <string name="bakery_icon">Bakery Icon</string>
+    <string name="bakery">Bakery Icon</string>
+    <string name="truck_icon">truck icon</string>
+    <string name="delivery">Delivery</string>
+    <string name="takeaway_icon">takeaway icon</string>
+    <string name="takeaway">Takeaway</string>
+    <string name="cafe_icon">Cafe Icon</string>
+    <string name="cafe">Cafe</string>
+    <string name="museum_icon">Museum icon</string>
+    <string name="museum">Museum</string>
+    <string name="night_club">Night Club</string>
+    <string name="club_icon">club icon</string>
+    <string name="restaurant_icon">Restaurant icon"</string>
+    <string name="restaurant">Restaurant icon"</string>
+    <string name="spa">Spa</string>
+    <string name="spa_icon">Spa Icon</string>
+    <string name="image_icon">Image icon for ResultList</string>
+    <string name="keyword">Enter keyword</string>
+    <string name="search">Search</string>
+
+
+</resources>
