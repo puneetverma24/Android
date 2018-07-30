@@ -45,11 +45,11 @@ public interface SearchInterface
 
 
 
-    @GET("textsearch/json?key=AIzaSyCrAkJhbJRPxsT12nnq6EGV9dLzSSI3bLI")
+    @GET("textsearch/json?key="+key)
     Call<TextSearch> getTextResult(@Query("query") String temp);
 
 
-    @GET("details/json?fields=name,rating,formatted_phone_number,opening_hours,website,photo,vicinity,formatted_address&key=AIzaSyCrAkJhbJRPxsT12nnq6EGV9dLzSSI3bLI")
+    @GET("details/json?fields=name,rating,formatted_phone_number,opening_hours,website,photo,vicinity,formatted_address&key="+key)
     Call<DisplayDetail> getDetail(@Query("placeid") String placeid);
 
 
